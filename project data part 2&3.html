@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Al Khattab Al Saqri 138349">
+
+<title>Analysis of Students’ Lifestyle and Academic Performance</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="project data part 2&amp;3_files/libs/clipboard/clipboard.min.js"></script>
+<script src="project data part 2&amp;3_files/libs/quarto-html/quarto.js"></script>
+<script src="project data part 2&amp;3_files/libs/quarto-html/popper.min.js"></script>
+<script src="project data part 2&amp;3_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="project data part 2&amp;3_files/libs/quarto-html/anchor.min.js"></script>
+<link href="project data part 2&amp;3_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="project data part 2&amp;3_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="project data part 2&amp;3_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="project data part 2&amp;3_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="project data part 2&amp;3_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Analysis of Students’ Lifestyle and Academic Performance</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Al Khattab Al Saqri 138349 </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction:</h2>
+<p>Students’ academic performance is influenced by a combination of behavioral and lifestyle factors, including study habits, sleep patterns, social engagement, and physical activity. In recent years, there has been increasing interest in understanding how these factors interact not only to affect academic outcomes such as Grade Point Average (GPA), but also students’ psychological well-being, often reflected through stress levels.</p>
+<p>From a statistical perspective, analyzing such relationships provides an opportunity to apply both inferential and model-based techniques to real-world data. By examining patterns within student lifestyle variables, we can assess whether observed differences and associations are statistically significant, and whether they can be used to build reliable predictive models.</p>
+<p>This study is based on a dataset that includes key lifestyle indicators—study hours, sleep hours, social hours, and physical activity—along with academic performance measured by GPA and a categorical variable representing stress level. The combination of continuous and categorical variables allows for a comprehensive analysis using a range of statistical methods.</p>
+<p>The primary objective of this report is to apply appropriate inferential procedures and advanced statistical modeling techniques to explore relationships within the data, test relevant hypotheses, and evaluate the ability of lifestyle factors to explain and predict academic performance and stress levels. Emphasis is placed on selecting suitable methods, validating underlying assumptions, and providing meaningful interpretations of the results in the context of student life.</p>
+</section>
+<section id="research-questions" class="level2">
+<h2 class="anchored" data-anchor-id="research-questions">Research Questions</h2>
+<ol type="1">
+<li><p><strong>Is there a significant relationship between study hours and academic performance (GPA)?</strong><br>
+</p></li>
+<li><p><strong>How do lifestyle factors (sleep hours, social hours, and physical activity) relate to students’ GPA?</strong><br>
+</p></li>
+<li><p><strong>Do students with different stress levels (low, medium, high) differ significantly in their lifestyle habits?</strong><br>
+</p></li>
+<li><p><strong>Is there a statistically significant association between lifestyle variables and stress level?</strong><br>
+</p></li>
+<li><p><strong>Can students’ stress levels be accurately predicted using lifestyle variables?</strong><br>
+</p></li>
+<li><p><strong>Are there distinct groups of students based on their lifestyle patterns?</strong><br>
+</p></li>
+</ol>
+</section>
+<section id="exploratory-data-analysis-eda" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-data-analysis-eda">Exploratory Data Analysis (EDA)</h2>
+<ol type="1">
+<li><p><strong>load necessary libraries:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'tidyverse' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'ggplot2' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'readr' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'forcats' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'lubridate' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   4.0.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'mice' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'mice'
+
+The following object is masked from 'package:stats':
+
+    filter
+
+The following objects are masked from 'package:base':
+
+    cbind, rbind</code></pre>
+</div>
+</div></li>
+<li><p><strong>Load Data &amp; Basic Inspection</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"C:/Users/Admin/Desktop/student.sheet.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 2000 Columns: 8
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (1): Stress_Level
+dbl (7): Student_ID, Study_Hours_Per_Day, Extracurricular_Hours_Per_Day, Sle...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The data consist of 2000 of observation and 8 columns.</p>
+<ul>
+<li><p><strong>View structure of the data:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 2,000
+Columns: 8
+$ Student_ID                      &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12,…
+$ Study_Hours_Per_Day             &lt;dbl&gt; 6.9, 5.3, 5.1, 6.5, 8.1, 6.0, 8.0, 8.4…
+$ Extracurricular_Hours_Per_Day   &lt;dbl&gt; 3.8, 3.5, 3.9, 2.1, 0.6, 2.1, 0.7, 1.8…
+$ Sleep_Hours_Per_Day             &lt;dbl&gt; 8.7, 8.0, 9.2, 7.2, 6.5, 8.0, 5.3, 5.6…
+$ Social_Hours_Per_Day            &lt;dbl&gt; 2.8, 4.2, 1.2, 1.7, 2.2, 0.3, 5.7, 3.0…
+$ Physical_Activity_Hours_Per_Day &lt;dbl&gt; 1.8, 3.0, 4.6, 6.5, 6.6, 7.6, 4.3, 5.2…
+$ GPA                             &lt;dbl&gt; 2.99, 2.75, 2.67, 2.88, 3.51, 2.85, 3.…
+$ Stress_Level                    &lt;chr&gt; "Moderate", "Low", "Low", "Moderate", …</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The dataset used in this study contains information on students’ lifestyle habits, academic performance, and stress levels. It includes both continuous and categorical variables, allowing for a comprehensive statistical analysis.</p>
+<p>The variables in the dataset are described as follows:</p>
+<ul>
+<li><p><strong>Study Hours</strong>: Number of hours a student spends studying (continuous variable).</p></li>
+<li><p><strong>Sleep Hours</strong>: Average number of hours a student sleeps per day (continuous variable).</p></li>
+<li><p><strong>Social Hours</strong>: Time spent on social activities (continuous variable).</p></li>
+<li><p><strong>Physical Activity</strong>: Time allocated to physical exercise or activity (continuous variable).</p></li>
+<li><p><strong>GPA</strong>: Grade Point Average, used as a measure of academic performance (continuous variable).</p></li>
+<li><p><strong>Stress Level</strong>: A categorical variable indicating the student’s stress level (e.g., low, medium, high).</p></li>
+</ul></li>
+<li><p><strong>Summary statistics:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics of the data </span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Student_ID     Study_Hours_Per_Day Extracurricular_Hours_Per_Day
+ Min.   :   1.0   Min.   : 5.000      Min.   :0.000                
+ 1st Qu.: 500.8   1st Qu.: 6.300      1st Qu.:1.000                
+ Median :1000.5   Median : 7.400      Median :2.000                
+ Mean   :1000.5   Mean   : 7.477      Mean   :1.989                
+ 3rd Qu.:1500.2   3rd Qu.: 8.700      3rd Qu.:3.000                
+ Max.   :2000.0   Max.   :10.000      Max.   :4.000                
+                  NA's   :4           NA's   :17                   
+ Sleep_Hours_Per_Day Social_Hours_Per_Day Physical_Activity_Hours_Per_Day
+ Min.   : 5.000      Min.   :0.000        Min.   : 0.000                 
+ 1st Qu.: 6.200      1st Qu.:1.200        1st Qu.: 2.400                 
+ Median : 7.500      Median :2.600        Median : 4.100                 
+ Mean   : 7.499      Mean   :2.701        Mean   : 4.329                 
+ 3rd Qu.: 8.800      3rd Qu.:4.100        3rd Qu.: 6.100                 
+ Max.   :10.000      Max.   :6.000        Max.   :13.000                 
+ NA's   :15          NA's   :18           NA's   :7                      
+      GPA        Stress_Level      
+ Min.   :2.240   Length:2000       
+ 1st Qu.:2.900   Class :character  
+ Median :3.110   Mode  :character  
+ Mean   :3.116                     
+ 3rd Qu.:3.330                     
+ Max.   :4.000                     
+ NA's   :2                         </code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The summary statistics provide an overview of the main characteristics of each variable in the dataset.</p>
+<p>The <strong>Student_ID</strong> variable ranges from 1 to 2000, with a mean and median of 1000.5, indicating that the dataset is evenly indexed and contains 2000 observations.</p>
+<p>For <strong>Study_Hours_Per_Day</strong>, the values range from 5 to 10 hours, with a mean of 7.477 and a median of 7.4. The mean and median are very close, suggesting that the distribution is approximately symmetric. However, there are 4 missing values that should be considered during further analysis.</p>
+<p>The <strong>Extracurricular_Hours_Per_Day</strong> variable has a range from 0 to 4 hours, with a mean of 1.989 and a median of 2. This again indicates a roughly symmetric distribution. However, this variable contains 17 missing values, which is relatively notable.</p>
+<p>For <strong>Sleep_Hours_Per_Day</strong>, the data ranges between 5 and 10 hours, with a mean of 7.499 and a median of 7.5, showing a highly symmetric distribution. There are 15 missing values in this variable.</p>
+<p>The <strong>Social_Hours_Per_Day</strong> variable ranges from 0 to 6 hours, with a mean of 2.701 and a median of 2.6. The slightly higher mean suggests a small right skew. This variable has 18 missing values, which is the highest among the time-use variables.</p>
+<p>The <strong>Physical_Activity_Hours_Per_Day</strong> variable shows a wider spread, ranging from 0 to 13 hours. The mean (4.329) is higher than the median (4.1), indicating a slight right-skewed distribution, possibly due to some high values. There are 7 missing values.</p>
+<p>For <strong>GPA</strong>, values range from 2.24 to 4.00, with a mean of 3.116 and a median of 3.11, suggesting a symmetric distribution. Only 2 values are missing, indicating relatively complete data for this variable.</p>
+<p>Finally, <strong>Stress_Level</strong> is a categorical (character) variable, so numerical summaries such as mean and median are not applicable.</p></li>
+</ul></li>
+<li><p><strong>Handel Missing Values:</strong></p>
+<ol type="1">
+<li><p><strong>Find Missing Values:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 64</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The dataset contains a total of 64 missing values (NA’s) across the variables, indicating the presence of incomplete observations. This level of missingness is relatively moderate given the overall sample size, but it is still important to address before proceeding with further analysis.</p></li>
+<li><p><strong>Define the missing value for each variable.</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colSums</span>(<span class="fu">is.na</span>(data))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                     Student_ID             Study_Hours_Per_Day 
+                              0                               4 
+  Extracurricular_Hours_Per_Day             Sleep_Hours_Per_Day 
+                             17                              15 
+           Social_Hours_Per_Day Physical_Activity_Hours_Per_Day 
+                             18                               7 
+                            GPA                    Stress_Level 
+                              2                               1 </code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The distribution of missing values varies across the variables in the dataset, indicating that data incompleteness is not uniform.</p>
+<p>The <strong>Student_ID</strong> variable contains no missing values, confirming that all observations are properly identified. In contrast, several variables related to students’ daily activities exhibit missing data. Specifically, <strong>Study_Hours_Per_Day</strong> has 4 missing values, while <strong>Extracurricular_Hours_Per_Day</strong> and <strong>Sleep_Hours_Per_Day</strong> contain 17 and 15 missing values, respectively.</p>
+<p>The highest level of missingness is observed in <strong>Social_Hours_Per_Day</strong>, with 18 missing values, suggesting that this variable may require particular attention during data preprocessing. The <strong>Physical_Activity_Hours_Per_Day</strong> variable has 7 missing values, indicating a relatively lower level of missingness compared to other behavioral variables.</p>
+<p>For the outcome-related variable <strong>GPA</strong>, only 2 values are missing, which suggests that this key variable is largely complete and reliable for analysis. Similarly, the categorical variable <strong>Stress_Level</strong> has just 1 missing value, indicating minimal data loss.</p></li>
+<li><p><strong>Handle missing values by using MICE (Multivariate Imputation by Chained Equations).</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mice)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Check missing pattern</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="fu">md.pattern</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Student_ID Stress_Level GPA Study_Hours_Per_Day
+1949          1            1   1                   1
+9             1            1   1                   1
+12            1            1   1                   1
+1             1            1   1                   1
+8             1            1   1                   1
+4             1            1   1                   1
+3             1            1   1                   1
+4             1            1   1                   1
+3             1            1   1                   1
+3             1            1   1                   0
+1             1            1   1                   0
+2             1            1   0                   1
+1             1            0   1                   1
+              0            1   2                   4
+     Physical_Activity_Hours_Per_Day Sleep_Hours_Per_Day
+1949                               1                   1
+9                                  1                   1
+12                                 1                   1
+1                                  1                   1
+8                                  1                   0
+4                                  1                   0
+3                                  1                   0
+4                                  0                   1
+3                                  0                   1
+3                                  1                   1
+1                                  1                   1
+2                                  1                   1
+1                                  1                   1
+                                   7                  15
+     Extracurricular_Hours_Per_Day Social_Hours_Per_Day   
+1949                             1                    1  0
+9                                1                    0  1
+12                               0                    1  1
+1                                0                    0  2
+8                                1                    1  1
+4                                1                    0  2
+3                                0                    1  2
+4                                1                    1  1
+3                                1                    0  2
+3                                1                    1  1
+1                                0                    1  2
+2                                1                    1  1
+1                                1                    0  2
+                                17                   18 64</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply multiple imputation</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>imputed_data <span class="ot">&lt;-</span> <span class="fu">mice</span>(data, <span class="at">m =</span> <span class="dv">5</span>, <span class="at">method =</span> <span class="st">"pmm"</span>, <span class="at">seed =</span> <span class="dv">123</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ iter imp variable
+  1   1  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  1   2  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  1   3  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  1   4  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  1   5  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  2   1  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  2   2  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  2   3  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  2   4  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  2   5  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  3   1  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  3   2  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  3   3  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  3   4  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  3   5  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  4   1  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  4   2  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  4   3  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  4   4  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  4   5  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  5   1  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  5   2  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  5   3  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  5   4  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA
+  5   5  Study_Hours_Per_Day  Extracurricular_Hours_Per_Day  Sleep_Hours_Per_Day  Social_Hours_Per_Day  Physical_Activity_Hours_Per_Day  GPA</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Number of logged events: 24</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get completed dataset</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>complete_data <span class="ot">&lt;-</span> <span class="fu">complete</span>(imputed_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>Multiple Imputation using the MICE (Multivariate Imputation by Chained Equations) approach is the most appropriate method for handling the missing values in this dataset because it provides statistically sound and unbiased estimates while making full use of the available information.</p>
+<p>First, the missing values in this dataset are relatively low in proportion but are spread across several variables rather than concentrated in a single one. In such situations, deleting incomplete cases would lead to unnecessary loss of information and a reduction in statistical power. This could also distort the representativeness of the sample, especially if the missingness is not completely random.</p>
+<p>Second, MICE is particularly suitable because it accounts for the multivariate relationships among variables. In this dataset, variables such as study hours, sleep hours, social activity, physical activity, and GPA are likely interrelated. MICE preserves these relationships by imputing missing values based on predictive models using the other observed variables, rather than relying on simple replacements such as mean or median.</p>
+<p>Third, this method reduces bias compared to single imputation techniques. Simple approaches like mean imputation ignore variability and tend to underestimate standard errors, which can lead to overly optimistic statistical conclusions. In contrast, MICE creates multiple imputed datasets, reflecting the uncertainty of missing values and producing more reliable standard errors and confidence intervals after pooling results.</p>
+<p>Finally, MICE is flexible and suitable for mixed data types, which is important in this dataset that includes both continuous variables (e.g., GPA, hours-based variables) and categorical variables (Stress_Level).</p>
+<p>Overall, Multiple Imputation (MICE) is the best choice because it preserves data integrity, maintains statistical relationships, reduces bias, and provides more valid inferential results compared to simpler or case-deletion methods.</p></li>
+</ol></li>
+<li><p><strong>Univariate Analysis:</strong></p>
+<p>To understand each variable individually (distribution, spread, outliers).</p>
+<ul>
+<li><p><strong>Continuous variables:</strong></p>
+<ol type="1">
+<li><p><strong>GPA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(complete_data<span class="sc">$</span>GPA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  2.240   2.900   3.110   3.116   3.330   4.000 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(complete_data<span class="sc">$</span>GPA, <span class="at">main =</span> <span class="st">"GPA Distribution"</span>, <span class="at">xlab =</span> <span class="st">"GPA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(complete_data<span class="sc">$</span>GPA, <span class="at">main =</span> <span class="st">"GPA Boxplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The univariate analysis of GPA reveals its distribution and variability through numerical summaries and graphical methods. GPA values range from 2.24 to 4.00, with a mean of 3.116 and a median of 3.110, indicating a symmetric distribution. The interquartile range, between 2.90 and 3.33, shows that the middle 50% of GPAs have low to moderate variability. The histogram suggests a normal distribution, while the boxplot indicates symmetry around the median with balanced whiskers and no significant outliers, asserting that the data is stable and reliable for analysis.</p></li>
+<li><p><strong>Study Hours</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(complete_data<span class="sc">$</span>Study_Hours_Per_Day )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  5.000   6.300   7.400   7.476   8.700  10.000 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(complete_data<span class="sc">$</span>Study_Hours_Per_Day , <span class="at">main =</span> <span class="st">"Study Hours Per Day  Distribution"</span>, <span class="at">xlab =</span> <span class="st">"Study_Hours_Per_Day "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(complete_data<span class="sc">$</span>Study_Hours_Per_Day , <span class="at">main =</span> <span class="st">"Study Hours Per Day  Boxplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-9-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The univariate analysis of Study_Hours_Per_Day examines the daily study time of students, revealing a range from 5 to 10 hours. The mean (7.476 hours) and median (7.400 hours) are close, indicating a symmetric distribution. The first quartile (6.3 hours) and third quartile (8.7 hours) suggest consistent variation in the middle 50% of study hours. The histogram shows an approximately uniform distribution, while the boxplot indicates a balanced spread around the median with no significant skewness or outliers, demonstrating that study times are evenly distributed among students.</p></li>
+<li><p><strong>Sleep Hours</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(complete_data<span class="sc">$</span>Sleep_Hours_Per_Day  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  5.000   6.200   7.500   7.501   8.800  10.000 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(complete_data<span class="sc">$</span>Sleep_Hours_Per_Day  , <span class="at">main =</span> <span class="st">"Sleep Hours Per Day   Distribution"</span>, <span class="at">xlab =</span> <span class="st">"Sleep Hours Per Day  "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(complete_data<span class="sc">$</span>Sleep_Hours_Per_Day  , <span class="at">main =</span> <span class="st">"Sleep Hours Per Day Boxplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The univariate analysis of Sleep_Hours_Per_Day reveals that students’ daily sleep duration ranges from 5 to 10 hours, with a mean of 7.501 hours and a median of 7.500 hours, indicating a symmetric distribution. The first quartile is 6.2 hours, and the third quartile is 8.8 hours, suggesting that the middle 50% of students have consistent sleep patterns. The histogram shows an approximately uniform distribution, while the boxplot indicates balanced data around the median with equal whisker lengths and no significant outliers, confirming a well-behaved data set.</p></li>
+<li><p><strong>Social Hours</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(complete_data<span class="sc">$</span>Social_Hours_Per_Day  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.000   1.200   2.600   2.702   4.100   6.000 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(complete_data<span class="sc">$</span>Social_Hours_Per_Day  , <span class="at">main =</span> <span class="st">"Social Hours Per Day   Distribution"</span>, <span class="at">xlab =</span> <span class="st">"Social Hours Per Day  "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(complete_data<span class="sc">$</span>Social_Hours_Per_Day  , <span class="at">main =</span> <span class="st">"Social Hours Per Day   Boxplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-11-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The univariate analysis of Social_Hours_Per_Day illustrates students’ social activity time through summary statistics and graphical formats. Social hours range from 0 to 6 hours, with a mean of 2.702 hours slightly exceeding the median of 2.600 hours, indicating a mild right-skewed distribution. The first quartile (1.2 hours) and third quartile (4.1 hours) reflect moderate variability in social activities, where most students engage in limited social time. A histogram shows the distribution is positively skewed, with more students at lower social hours. The boxplot reinforces this with a longer upper whisker, suggesting the presence of higher values but no clear outliers.</p></li>
+<li><p><strong>Physical Activity</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(complete_data<span class="sc">$</span>Physical_Activity_Hours_Per_Day)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  0.000   2.400   4.100   4.331   6.100  13.000 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(complete_data<span class="sc">$</span>Physical_Activity_Hours_Per_Day, <span class="at">main =</span> <span class="st">"Physical Activity Hours Per Day Distribution"</span>, <span class="at">xlab =</span> <span class="st">"Physical Activity Hours Per Day"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(complete_data<span class="sc">$</span>Study_Hours_Per_Day , <span class="at">main =</span> <span class="st">"Physical Activity Hours Per Day Boxplot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-12-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The univariate analysis of Physical_Activity_Hours_Per_Day examines students’ daily physical activity through summary statistics and visual methods like histograms and boxplots. The range of activity hours is 0 to 13, with a mean of 4.331 hours and a median of 4.100, indicating a mild right-skewed distribution. The first quartile is 2.4 hours and the third quartile is 6.1 hours, suggesting moderate levels of activity for the middle 50% of students. The histogram shows a positive skew with most data points at lower activity levels and fewer at higher levels. The boxplot corroborates this with a longer upper whisker, confirming right skewness and the absence of outliers, indicating all values are within a normal variation range.</p></li>
+</ol></li>
+<li><p><strong>Categorical variable:</strong></p>
+<p><strong>Stress Level</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(complete_data<span class="sc">$</span>Stress_Level)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    High      Low Moderate 
+    1029      296      674 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">barplot</span>(<span class="fu">table</span>(complete_data<span class="sc">$</span>Stress_Level), <span class="at">main =</span> <span class="st">"Stress Level Distribution"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The univariate analysis of Stress_Level reveals that most students fall into the High stress category (1029 students), followed by Moderate stress (674 students) and the least in Low stress (296 students). This distribution indicates a significant concentration of high stress levels among students, potentially influenced by academic or lifestyle factors.</p></li>
+</ul></li>
+<li><p><strong>Bivariate Analysis</strong></p>
+<p>The goal is to start answering research questions visually.</p>
+<ul>
+<li><p><strong>Continuous vs Continuous:</strong></p>
+<p><strong>Study Hours vs GPA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(complete_data<span class="sc">$</span>Study_Hours_Per_Day, complete_data<span class="sc">$</span>GPA,</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Study Hours vs GPA"</span>,</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Study Hours"</span>,</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"GPA"</span>)</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="fu">lm</span>(GPA <span class="sc">~</span> Study_Hours_Per_Day, <span class="at">data =</span> complete_data), <span class="at">col =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation</strong>:</p>
+<p>The analysis of the relationship between daily study hours and GPA through a scatter plot with a fitted linear regression indicates a positive association; more study hours generally correlate with higher GPA. Despite this trend, the relationship is moderate, as students with similar study hours can achieve different GPAs. This suggests that while study time is a crucial predictor of academic success, other factors like sleep, stress, social interactions, and physical activity also play significant roles in GPA variation.</p></li>
+<li><p><strong>Correlation Matrix</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>numeric_data <span class="ot">&lt;-</span> complete_data[, <span class="fu">c</span>(<span class="st">"Study_Hours_Per_Day"</span>, <span class="st">"Sleep_Hours_Per_Day"</span>,</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Social_Hours_Per_Day"</span>,<span class="st">"Physical_Activity_Hours_Per_Day"</span>, <span class="st">"GPA"</span>)]</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(numeric_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Study_Hours_Per_Day Sleep_Hours_Per_Day
+Study_Hours_Per_Day                      1.00000000          0.02844305
+Sleep_Hours_Per_Day                      0.02844305          1.00000000
+Social_Hours_Per_Day                    -0.13939758         -0.19380441
+Physical_Activity_Hours_Per_Day         -0.48783183         -0.47204478
+GPA                                      0.73476298         -0.00383390
+                                Social_Hours_Per_Day
+Study_Hours_Per_Day                      -0.13939758
+Sleep_Hours_Per_Day                      -0.19380441
+Social_Hours_Per_Day                      1.00000000
+Physical_Activity_Hours_Per_Day          -0.41581264
+GPA                                      -0.08764271
+                                Physical_Activity_Hours_Per_Day         GPA
+Study_Hours_Per_Day                                  -0.4878318  0.73476298
+Sleep_Hours_Per_Day                                  -0.4720448 -0.00383390
+Social_Hours_Per_Day                                 -0.4158126 -0.08764271
+Physical_Activity_Hours_Per_Day                       1.0000000 -0.33983890
+GPA                                                  -0.3398389  1.00000000</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The correlation matrix analyzed the relationships between Study Hours, Sleep Hours, Social Hours, Physical Activity, and GPA. The strongest correlation is between Study Hours and GPA (r = 0.735), suggesting that more study time typically leads to higher academic performance. Sleep Hours show a negligible correlation with GPA (r = -0.004), while Social Hours present a weak negative correlation (r = -0.088). Physical Activity has a moderate negative correlation with GPA (r = -0.340), indicating that increased physical activity may correlate with lower academic performance. Additionally, Study Hours and Physical Activity are negatively correlated (r = -0.488), and Study Hours also show a weak negative correlation with Social Hours (r = -0.139). Sleep Hours negatively correlate with Social Hours (r = -0.194) and Physical Activity (r = -0.472), suggesting that more sleep is associated with less engagement in these activities.</p></li>
+<li><p><strong>Continuous vs Categorical</strong></p>
+<ol type="1">
+<li><p><strong>Stress Level vs Sleep</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Sleep_Hours_Per_Day <span class="sc">~</span> Stress_Level,</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> complete_data,</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Sleep Hours by Stress Level"</span>,</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Stress Level"</span>,</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Sleep Hours"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The analysis of the relationship between Stress_Level (categorical) and Sleep_Hours_Per_Day (continuous) utilized a boxplot to compare sleep patterns across Low, Moderate, and High stress groups. The results indicate that students with high stress tend to have slightly lower median sleep hours than those with moderate or low stress, whereas students with low stress show higher median sleep hours. Despite these trends, the interquartile ranges suggest similar variability in sleep hours across all groups, and significant overlap persists, indicating that stress level alone does not effectively distinguish sleep behavior among students.</p></li>
+<li><p><strong>Stress Level vs Study Hours</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Study_Hours_Per_Day <span class="sc">~</span> Stress_Level,</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> complete_data,</span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Study Hours by Stress Level"</span>,</span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Stress Level"</span>,</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Study Hours"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The analysis of Stress_Level as a categorical variable and Study_Hours_Per_Day as a continuous variable was conducted using a boxplot. The visualization indicates that students in the high stress category have a higher median study time, suggesting a potential association between increased study hours and greater stress. Conversely, those in the low stress category exhibit lower median study hours, indicative of a less intensive study routine. The moderate stress group is positioned between these extremes. Although there is some overlap in data spread (interquartile range) among groups, the upward shift in median study hours from low to high stress points to a positive relationship between study hours and stress level.</p></li>
+<li><p><strong>Stress Level vs GPA</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(GPA <span class="sc">~</span> Stress_Level,</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> complete_data,</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"GPA by Stress Level"</span>,</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Stress Level"</span>,</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"GPA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The analysis of the relationship between Stress_Level and GPA using a boxplot reveals a positive association: higher stress levels correspond with higher median GPAs. Students under greater academic pressure may perform better academically, though distributions show overlap among stress categories, suggesting other factors also influence GPA. The boxplot indicates outliers, highlighting that some students achieve atypical GPAs within similar stress levels.</p></li>
+<li><p><strong>Stress Level vs Physical Activity</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Physical_Activity_Hours_Per_Day <span class="sc">~</span> Stress_Level,</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> complete_data,</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Physical Activity by Stress Level"</span>,</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Stress Level"</span>,</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Physical Activity"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation</strong>:</p>
+<p>The boxplot analysis reveals a negative relationship between Stress_Level and Physical_Activity_Hours_Per_Day among students. Those with low stress exhibit higher median physical activity, while those with high stress show the lowest. This trend suggests that increased stress correlates with reduced physical activity, indicating a potential lifestyle imbalance. Although the interquartile ranges demonstrate some overlap among the stress categories, the overall pattern persists despite individual variations within each group.</p></li>
+<li><p><strong>Stress Level vs Social Hours</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(Social_Hours_Per_Day <span class="sc">~</span> Stress_Level,</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">data =</span> complete_data,</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">"Social Hours by Stress Level"</span>,</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">"Stress Level"</span>,</span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">"Social Hours"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The analysis of the relationship between Stress_Level (categorical) and Social_Hours_Per_Day (continuous) reveals a negative correlation. Students with low stress report high median social hours, while those with high stress show the least social engagement. This suggests that increased social activities may help reduce stress, although there is variability within each stress category, indicating that stress does not completely dictate social behavior.</p></li>
+</ol></li>
+</ul></li>
+<li><p><strong>Summary:</strong></p>
+<p>The exploratory data analysis (EDA) reveals that academic performance (GPA) is mainly influenced by study behavior, especially Study Hours, while lifestyle factors such as physical activity, social engagement, and sleep have secondary but significant effects. Stress is identified as a crucial intermediary factor balancing academic effort with lifestyle choices, with more intense study correlating with increased stress and improved academic results. This structured relationship among academic performance, stress, and lifestyle behaviors sets a solid groundwork for advanced statistical modeling, including regression analysis and stress level classification.</p></li>
+</ol>
+</section>
+<section id="part-i-inferential-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="part-i-inferential-analysis">Part I: Inferential Analysis</h2>
+<ol type="1">
+<li><p><strong>Correlation Analysis (Study Habits vs GPA):</strong></p>
+<ul>
+<li><p>We use correlation because:</p>
+<ul>
+<li><p>Both variables are continuous.</p></li>
+<li><p>We want to measure <strong>strength and direction of relationship.</strong></p></li>
+</ul></li>
+<li><p><strong>Pearson Correlation:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(complete_data<span class="sc">$</span>Study_Hours_Per_Day, complete_data<span class="sc">$</span>GPA)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Pearson's product-moment correlation
+
+data:  complete_data$Study_Hours_Per_Day and complete_data$GPA
+t = 48.418, df = 1998, p-value &lt; 2.2e-16
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ 0.7139242 0.7543014
+sample estimates:
+     cor 
+0.734763 </code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>A Pearson correlation test revealed a strong positive correlation (r = 0.735) between Study_Hours_Per_Day and GPA, indicating that increased study time is associated with higher GPA scores. The correlation is statistically significant (p &lt; 2.2 × 10⁻¹⁶), allowing for the rejection of the null hypothesis. The 95% confidence interval (0.714 to 0.754) supports the reliability of this correlation estimate, while the large t-statistic (t = 48.418) underscores a robust relationship between the variables.</p></li>
+<li><p><strong>Correlation Matrix:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>numeric_data <span class="ot">&lt;-</span> complete_data[, <span class="fu">c</span>(<span class="st">"Study_Hours_Per_Day"</span>, <span class="st">"Sleep_Hours_Per_Day"</span>,</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Social_Hours_Per_Day"</span>, <span class="st">"Physical_Activity_Hours_Per_Day"</span>, <span class="st">"GPA"</span>)]</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(numeric_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                                Study_Hours_Per_Day Sleep_Hours_Per_Day
+Study_Hours_Per_Day                      1.00000000          0.02844305
+Sleep_Hours_Per_Day                      0.02844305          1.00000000
+Social_Hours_Per_Day                    -0.13939758         -0.19380441
+Physical_Activity_Hours_Per_Day         -0.48783183         -0.47204478
+GPA                                      0.73476298         -0.00383390
+                                Social_Hours_Per_Day
+Study_Hours_Per_Day                      -0.13939758
+Sleep_Hours_Per_Day                      -0.19380441
+Social_Hours_Per_Day                      1.00000000
+Physical_Activity_Hours_Per_Day          -0.41581264
+GPA                                      -0.08764271
+                                Physical_Activity_Hours_Per_Day         GPA
+Study_Hours_Per_Day                                  -0.4878318  0.73476298
+Sleep_Hours_Per_Day                                  -0.4720448 -0.00383390
+Social_Hours_Per_Day                                 -0.4158126 -0.08764271
+Physical_Activity_Hours_Per_Day                       1.0000000 -0.33983890
+GPA                                                  -0.3398389  1.00000000</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>A Pearson correlation matrix was analyzed to assess the relationships between Study Hours, Sleep Hours, Social Hours, Physical Activity, and GPA. The results indicate a strong positive correlation (r = 0.735) between Study Hours and GPA, whereas Physical Activity (r = -0.340) shows a moderate negative correlation with GPA. Sleep Hours and GPA exhibit virtually no correlation (r = -0.004), and Social Hours have a very weak negative relationship (r = -0.088). Among lifestyle variables, notable correlations include negative relationships between Study Hours and both Physical Activity (r = -0.488) and Social Hours (r = -0.139), and between Sleep Hours and Physical Activity (r = -0.472). This analysis highlights a behavioral trade-off in time allocation among students, with Study Hours being the primary predictor of GPA.</p></li>
+</ul></li>
+<li><p><strong>One-Way ANOVA (Stress Level Differences).</strong></p>
+<ul>
+<li><p>We use ANOVA because:</p>
+<ul>
+<li><p>Stress level is categorical (3 groups).</p></li>
+<li><p>We compare means of continuous variables across groups</p></li>
+</ul></li>
+<li><p><strong>ANOVA test</strong></p>
+<ul>
+<li>Test GPA vs Stress Level</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(GPA <span class="sc">~</span> Stress_Level, <span class="at">data =</span> complete_data)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Df Sum Sq Mean Sq F value Pr(&gt;F)    
+Stress_Level    2  54.22  27.112   436.2 &lt;2e-16 ***
+Residuals    1996 124.07   0.062                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+1 observation deleted due to missingness</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>A one-way ANOVA test revealed that Stress Level significantly affects GPA, with an F-statistic of 436.2 and a p-value less than 2 × 10⁻¹⁶, leading to the rejection of the null hypothesis. This implies that mean GPA differs across stress levels. The variation between group means exceeds that within groups, emphasizing stress level’s impact on academic performance.</p>
+<ul>
+<li><p>Test Study Hours vs Stress Level</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(Study_Hours_Per_Day <span class="sc">~</span> Stress_Level, <span class="at">data =</span> complete_data)</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Df Sum Sq Mean Sq F value Pr(&gt;F)    
+Stress_Level    2   2212  1106.0    1200 &lt;2e-16 ***
+Residuals    1996   1840     0.9                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+1 observation deleted due to missingness</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>A one-way ANOVA test indicated significant differences in Study_Hours_Per_Day across Stress_Level categories (Low, Moderate, High), with an F-statistic of 1200 and a p-value &lt; 2 × 10⁻¹⁶. This p-value, significantly below 0.05, leads to the rejection of the null hypothesis, confirming that average study hours vary considerably among stress levels. The large F-value suggests that Stress Level accounts for a substantial portion of the variation in Study Hours.</p></li>
+<li><p>Test Sleep Hours vs Stress Level</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(Sleep_Hours_Per_Day <span class="sc">~</span> Stress_Level, <span class="at">data =</span> complete_data)</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Df Sum Sq Mean Sq F value Pr(&gt;F)    
+Stress_Level    2    437  218.74   113.6 &lt;2e-16 ***
+Residuals    1996   3843    1.93                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+1 observation deleted due to missingness</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>A one-way ANOVA test revealed significant differences in Sleep_Hours_Per_Day across Stress_Level categories (Low, Moderate, High) with an F-statistic of 113.6 and a p-value less than 2 × 10⁻¹⁶. This indicates that mean sleep hours significantly vary with stress levels, as the variation between stress groups is much greater than within groups, highlighting an association between stress level and sleep behavior.</p></li>
+<li><p>Test Physical Activity Hours vs Stress Level</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(Physical_Activity_Hours_Per_Day <span class="sc">~</span> Stress_Level, <span class="at">data =</span> complete_data)</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Df Sum Sq Mean Sq F value Pr(&gt;F)    
+Stress_Level    2    610  304.80   50.61 &lt;2e-16 ***
+Residuals    1996  12021    6.02                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+1 observation deleted due to missingness</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>A one-way ANOVA test revealed significant differences in Physical Activity Hours Per Day across Stress Level categories (Low, Moderate, High), with an F-statistic of 50.61 and a p-value less than 2 × 10⁻¹⁶. This results in rejecting the null hypothesis, indicating that mean physical activity significantly varies across stress levels. The substantial F-value confirms that the variation in physical activity between stress groups is much larger than that within each group, highlighting a meaningful association between stress level and physical activity behavior.</p></li>
+<li><p>Test Social Hours vs Stress Level</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>anova_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(Social_Hours_Per_Day <span class="sc">~</span> Stress_Level, <span class="at">data =</span> complete_data)</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(anova_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Df Sum Sq Mean Sq F value Pr(&gt;F)  
+Stress_Level    2     18   8.908   3.128  0.044 *
+Residuals    1996   5685   2.848                 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+1 observation deleted due to missingness</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>A one-way ANOVA test revealed a statistically significant effect of Stress Level on Social_Hours_Per_Day, with F-statistic = 3.128 and p-value = 0.044. This leads to the rejection of the null hypothesis at the 5% significance level, indicating differences in mean social hours among stress levels. However, the small F-value suggests that the effect’s strength is weak, with variation between groups only slightly larger than within groups, indicating limited practical significance.</p></li>
+</ul></li>
+</ul></li>
+<li><p><strong>SUMMARY</strong>:</p>
+<p>The analysis indicates that study behavior is the main driver of academic performance, with stress influencing students’ lifestyle patterns. While higher stress correlates with better academic outcomes, it negatively affects sleep and physical activity, indicating a balance between achievement and well-being. The findings suggest a complex relationship among study habits, lifestyle choices, and stress, laying groundwork for future predictive analyses of GPA and stress levels.</p></li>
+</ol>
+</section>
+<section id="part-2-modeling" class="level2">
+<h2 class="anchored" data-anchor-id="part-2-modeling">PART 2: Modeling</h2>
+<ol type="1">
+<li><p><strong>CLASSIFICATION MODEL (Logistic Regression)</strong></p>
+<p>Can we predict <strong>Stress Level</strong> using lifestyle variables?</p>
+<ul>
+<li><p>Since stress has categories (low/medium/high), we simplify for logistic regression:</p>
+<ul>
+<li>We convert it into <strong>binary classification</strong></li>
+</ul>
+<pre><code>-   High stress = 1
+
+-   Low/Medium = 0</code></pre></li>
+</ul>
+<p>Prepare outcome variable:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>complete_data<span class="sc">$</span>StressBinary <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(complete_data<span class="sc">$</span>Stress_Level <span class="sc">==</span> <span class="st">"High"</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Fit Logistic Regression Model:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">glm</span>(StressBinary <span class="sc">~</span> Study_Hours_Per_Day <span class="sc">+</span> Sleep_Hours_Per_Day <span class="sc">+</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>               Social_Hours_Per_Day <span class="sc">+</span> Physical_Activity_Hours_Per_Day <span class="sc">+</span> GPA,</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> complete_data,</span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">family =</span> binomial)</span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+glm(formula = StressBinary ~ Study_Hours_Per_Day + Sleep_Hours_Per_Day + 
+    Social_Hours_Per_Day + Physical_Activity_Hours_Per_Day + 
+    GPA, family = binomial, data = complete_data)
+
+Coefficients:
+                                 Estimate Std. Error z value Pr(&gt;|z|)    
+(Intercept)                     -7.751315   1.581730  -4.901 9.56e-07 ***
+Study_Hours_Per_Day              2.007733   0.125984  15.936  &lt; 2e-16 ***
+Sleep_Hours_Per_Day             -1.130490   0.090923 -12.433  &lt; 2e-16 ***
+Social_Hours_Per_Day             0.004714   0.070963   0.066    0.947    
+Physical_Activity_Hours_Per_Day  0.049704   0.062421   0.796    0.426    
+GPA                              0.348644   0.352190   0.990    0.322    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+(Dispersion parameter for binomial family taken to be 1)
+
+    Null deviance: 2769.5  on 1998  degrees of freedom
+Residual deviance: 1258.6  on 1993  degrees of freedom
+  (1 observation deleted due to missingness)
+AIC: 1270.6
+
+Number of Fisher Scoring iterations: 6</code></pre>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>A logistic regression model was created to predict students’ likelihood of being classified as High Stress based on variables such as study hours, sleep hours, social hours, physical activity, and GPA. The model demonstrates a significant reduction in deviance from the null model (2769.5 to 1258.6) and a low AIC of 1270.6, indicating strong predictive power. Key significant predictors are study hours (β = 2.008, p &lt; 0.001), which increase stress likelihood, and sleep hours (β = -1.130, p &lt; 0.001), which decrease it. Non-significant predictors included social hours, physical activity, and GPA, suggesting they do not contribute meaningfully to stress classification. Overall, the findings highlight the impact of academic workload and sleep on student stress levels.</p></li>
+<li><p><strong>CLUSTERING (K-MEANS):</strong></p>
+<p>Are there <strong>natural groups of students</strong> based on lifestyle?</p>
+<ul>
+<li><p>Select variables (lifestyle variables)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>cluster_data <span class="ot">&lt;-</span> complete_data[, <span class="fu">c</span>(<span class="st">"Study_Hours_Per_Day"</span>, <span class="st">"Sleep_Hours_Per_Day"</span>,</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Social_Hours_Per_Day"</span>, <span class="st">"Physical_Activity_Hours_Per_Day"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Standardize data</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>cluster_scaled <span class="ot">&lt;-</span> <span class="fu">scale</span>(cluster_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Choosing number of clusters (Elbow Method)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>wss <span class="ot">&lt;-</span> <span class="fu">vector</span>()</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>  kmeans_model <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(cluster_scaled, <span class="at">centers =</span> i, <span class="at">nstart =</span> <span class="dv">10</span>)</span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>  wss[i] <span class="ot">&lt;-</span> kmeans_model<span class="sc">$</span>tot.withinss</span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, wss, <span class="at">type =</span> <span class="st">"b"</span>,</span>
+<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Number of Clusters"</span>,</span>
+<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a>     <span class="at">ylab =</span> <span class="st">"Within-cluster Sum of Squares"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretation:</strong></p>
+<p>The Elbow Method identified the optimal number of clusters as three by analyzing the Within-Cluster Sum of Squares (WSS) across various k values. The plot reveals a distinct elbow at k = 3, indicating that this number strikes a balance between model complexity and clustering quality. Beyond three clusters, the reduction in WSS diminishes, suggesting that adding more clusters yields only marginal improvements while increasing complexity.</p></li>
+<li><p>Fit K-means</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>kmeans_model <span class="ot">&lt;-</span> <span class="fu">kmeans</span>(cluster_scaled, <span class="at">centers =</span> <span class="dv">3</span>, <span class="at">nstart =</span> <span class="dv">25</span>)</span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>complete_data<span class="sc">$</span>Cluster <span class="ot">&lt;-</span> kmeans_model<span class="sc">$</span>cluster</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p>Visualize clusters</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: package 'factoextra' was built under R version 4.4.3</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(kmeans_model, <span class="at">data =</span> cluster_scaled)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="project-data-part-2-3_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div></li>
+<li><p><strong>Interpretation:</strong></p>
+<p>A K-means clustering analysis identified three distinct student lifestyle profiles based on time allocation across Study Hours, Sleep Hours, Social Hours, and Physical Activity Hours. Cluster 1 consists of academically focused students with high study hours and low leisure engagement. Cluster 2 represents students with a balanced lifestyle across all activities. Cluster 3 includes students prioritizing social and physical activities over studies. The existence of these clusters suggests significant differences in student behavior, informing targeted academic support and well-being interventions.</p></li>
+</ul></li>
+<li><p><strong>Summary:</strong></p>
+<p>A logistic regression model was used to predict high stress levels based on lifestyle and academic variables, showing significant predictive performance with a notable reduction in deviance from the null model. Study hours emerged as the strongest positive predictor, whereas sleep hours acted as a strong negative predictor. Other factors like social hours, physical activity, and GPA were not statistically significant. This suggests that stress levels are influenced primarily by the balance of study and sleep. Additionally, K-means clustering identified three distinct student profiles: a high study–low activity group, a balanced lifestyle group, and a high activity–low study group, indicating natural behavioral subgroups among students based on time allocation.</p></li>
+</ol>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>This study examines the interplay between students’ academic performance, stress levels, and daily lifestyle behaviors, utilizing exploratory analysis, inferential statistics, regression modeling, and clustering techniques. Key findings indicate that study behavior is the primary factor influencing academic performance, with a strong positive correlation between study hours and GPA. In contrast, other factors like sleep, social activity, and physical activity showed weak links to GPA, with physical activity negatively correlating with it.<br>
+<br>
+Stress levels vary significantly across GPA groups, suggesting high-performing students endure more pressure, although this does not imply a benefit. Lifestyle behaviors were found to greatly impact stress; increased study hours correlate with higher stress, while longer sleep duration reduces it. High-stress students typically study more but sleep less and engage less in physical and social activities.<br>
+<br>
+Clustering analysis identified three distinct student lifestyle profiles, highlighting the diversity in students’ time allocation for academic versus non-academic pursuits, which may inform targeted interventions.</p>
+<ul>
+<li><p><strong>Final Insight:</strong></p>
+<p>The findings highlight the importance of maintaining a balanced student lifestyle. Although academic success is strongly driven by study effort, excessive focus on studying without adequate sleep, physical activity, and social interaction may contribute to higher stress levels. Therefore, promoting balanced time management strategies is essential for supporting both academic achievement and student well-being.</p></li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
